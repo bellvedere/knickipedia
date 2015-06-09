@@ -3,11 +3,18 @@ module App
 
     enable :sessions
 
-    $db = PG.connect({dbname: 'knickipedia'})
-
     configure :development do
-      
-      register Sinatra::Reloader
+      $db = PG.connect dbname: "knickipedia", host: "localhost"
+    end
+
+    configure :production do
+      require 'uri'
+      uri = URI.parse ENV["DATABASE_URL"]
+      $db = PG.connect dbname: uri.path[1..-1],
+                         host: uri.host,
+                         port: uri.port,
+                         user: uri.user,
+                     password: uri.password
     end
 
     get('/') do

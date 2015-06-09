@@ -7,8 +7,11 @@ gem 'redcarpet'
 gem 'json'
 gem 'rest-client'
 gem 'sinatra'
-gem 'sinatra-contrib'
 gem 'sendgrid-ruby'
 gem 'pg'
-gem 'pry'
+
+group :development do
+	gem 'sinatra-contrib'
+	gem 'pry'
+end
 
