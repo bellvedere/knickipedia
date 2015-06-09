@@ -1,0 +1,15 @@
+<h1>Edit: <%= @article["name"] %></h1>
+
+<form method="post" action="/articles/<%= @article["id"] %>">
+
+  <input type="hidden" name="_method" value="patch">
+
+  <label for="name">Title</label>
+  <input type="text" name="name" value="<%= @article['name'] %>"><br>
+
+  <label for="content">Article Content</label>
+  <input type="text" name="content" value="<%= @article['content'] %>"></input><br>
+
+  <input type="submit">
+
+</form>
