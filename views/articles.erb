@@ -3,6 +3,6 @@
 <% @articles.each do |article| %>
   <div>
     <a href="/articles/<%= article["id"] %>"><%= article["name"] %></a> by
-    <a href="/users/<%= article["user_id"] %>"><%= article["user_id"] %></a>
+    <a href="/users/<%= article["user_id"] %>"><%= article["user_name"] %></a>
   </div>
 <% end %>
