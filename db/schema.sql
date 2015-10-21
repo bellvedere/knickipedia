@@ -1,21 +1,27 @@
-DROP DATABASE IF EXISTS knickipedia;
-CREATE DATABASE knickipedia;
+DROP TABLE IF EXISTS authors, categories, articles;
 
-\c knickipedia;
-
-CREATE TABLE users (
+CREATE TABLE authors (
   id SERIAL PRIMARY KEY,
-  name VARCHAR NOT NULL,
-  email VARCHAR NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  password VARCHAR NOT NULL
+  name VARCHAR,
+  image VARCHAR,
+  email VARCHAR,
+  password VARCHAR,
+  created_at TIMESTAMP
  );
+
+CREATE TABLE categories (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR,
+  description TEXT
+  );
 
 CREATE TABLE articles (
   id SERIAL PRIMARY KEY,
-  name VARCHAR NOT NULL,
-  content TEXT,
-  user_id INTEGER REFERENCES USERS(id),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  last_edit  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+  author_id INTEGER REFERENCES authors(id),
+  headline TEXT,
+  body TEXT,
+  summary TEXT,
+  category_id INTEGER REFERENCES categories(id),
+  created_at TIMESTAMP,
+  last_updated TIMESTAMP
+  );
