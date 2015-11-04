@@ -1,6 +1,4 @@
-DROP DATABASE IF EXISTS knickipedia;
-CREATE DATABASE knickipedia;
-\c knickipedia;
+DROP DATABASE IF EXISTS users, categories, articles;
 
 CREATE TABLE users (
   id        SERIAL   PRIMARY KEY,

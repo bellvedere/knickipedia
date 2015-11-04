@@ -1,19 +1,24 @@
-require "sinatra/base"
-require "sinatra/reloader"
-require "pry"
-require "redcarpet"
-
-require_relative './db/database'
+require_relative 'db/connection'
 
 module App
   class Server < Sinatra::Base
 
     # SETTING UP REQUIREMENTS ----------------------------
 
-    configure do 
+    configure :development do 
+      require 'sinatra/base'
+      require 'sinatra/reloader'
+      require 'pry'
+      require 'redcarpet'
       register Sinatra::Reloader
       set :sessions, true
     end #configure
+
+    configure :production do
+      require 'sinatra/base'
+      require 'redcarpet'
+      set :sessions, true
+    end
 
     
     def current_user 
