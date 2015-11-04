@@ -1,0 +1,11 @@
+<div class="center">
+	<h1>AUTHORS</h1>
+		<% @users.each do |user| %>
+			<div class="fleft margintop">
+				<img class="profilepic" src="<%=user['picture']%>">
+				<br>
+				<a href="/author/<%=user["id"]%>"><%= user['fname'].capitalize%> <%= user['lname'].capitalize%></a>
+			</div>
+		<%end%>
+</div>
+<div class="clearrow"></div>

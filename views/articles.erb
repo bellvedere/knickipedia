@@ -1,8 +1,19 @@
-<h1>Article List</h1>
+<!-- SHOWS ALL ARTICLE NAME WITJ LINKS TO IT -->
 
-<% @articles.each do |article| %>
-  <div>
-    <a href="/articles/<%= article["id"] %>"><%= article["name"] %></a> by
-    <a href="/articles/<%= article["user_id"] %>"><%= article["user_id"] %></a>
-  </div>
-<% end %>
+<h1> ARTICLES</h1>
+<div class="profile">
+<ul>
+	<% @articles.each do |article| %>
+	<div class="fleft margintop">
+	<li><a href="/articles/<%=article["id"]%>"><%=article["name"]%></a></li>
+	<li class="timeset"><%=article["edited_on"]%></li>
+	<li><%= article['content'][0..250]%> ...</li>
+	</div>
+	<div class="fright margintop">
+	<img class="articlepic2" src="<%=article["picture"]%>">
+	</div>
+	<div class="clearrow"></div>
+	<%end%>
+</ul>
+<div class="clearrow"></div>
+</div>
