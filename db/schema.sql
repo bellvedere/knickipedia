@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS users, categories, articles;
+DROP TABLE IF EXISTS users, categories, articles;
 
 CREATE TABLE users (
   id        SERIAL   PRIMARY KEY,
